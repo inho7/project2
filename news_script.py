@@ -21,8 +21,9 @@ url = "https://news.naver.com/section/100"
 # Selenium WebDriver 설정
 options = wb.ChromeOptions()
 # options.add_argument("--headless")  # 브라우저 창 없이 실행
+options.add_argument("--remote-debugging-port=9222")  # 디버깅 포트 연결
 options.add_argument("user-data-dir=C:/Users/username/selenium/user-data")  # 새로운 프로필 디렉토리 지정
-options.add_argument("profile-directory=Profile 1")  # 프로필 디렉토리 (Profile 1, Profile 2 등)
+
 service = Service(ChromeDriverManager().install())
 driver = wb.Chrome(service=service, options=options)
 
