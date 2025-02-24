@@ -16,8 +16,9 @@ import re
 url = "https://news.naver.com/section/100"
 
 # Selenium WebDriver 설정
-# options = wb.ChromeOptions()
+options = wb.ChromeOptions()
 # options.add_argument("--headless")  # 브라우저 창 없이 실행
+options.add_argument("user-data-dir=C:/Users/username/selenium/user-data")
 driver = wb.Chrome()
 driver.get(url)
 
