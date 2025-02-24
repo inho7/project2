@@ -12,6 +12,7 @@ from selenium.common.exceptions import NoSuchElementException
 from scipy.linalg import triu
 import re
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
 
 
 url = "https://news.naver.com/section/100"
@@ -20,9 +21,10 @@ url = "https://news.naver.com/section/100"
 options = wb.ChromeOptions()
 # options.add_argument("--headless")  # 브라우저 창 없이 실행
 options.add_argument("user-data-dir=C:/Users/username/selenium/user-data")
-driver = wb.Chrome(ChromeDriverManager().install(), options=options)
+service = Service(ChromeDriverManager().install())
+driver = wb.Chrome(service=service, options=options)
 
-driver = wb.Chrome()
+
 driver.get(url)
 
 
