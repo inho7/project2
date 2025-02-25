@@ -18,14 +18,18 @@ from selenium.webdriver.chrome.service import Service
 
 
 url = "https://news.naver.com/section/100"
-chrome_driver_path = "chromedriver.exe"
+chrome_driver_path = "/usr/local/bin/chromedriver"
 
 # Selenium WebDriver 설정
 options = wb.ChromeOptions()
 # options.add_argument("--headless")  # 브라우저 창 없이 실행
-
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+if os.path.exists(chrome_driver_path):
+    os.chmod(chrome_driver_path, stat.S_IRWXU)
+    
 service = Service(chrome_driver_path)
-os.chmod(chrome_driver_path, stat.S_IRWXU)
+
 
 driver = wb.Chrome(service=service, options=options)
 driver.get(url)
