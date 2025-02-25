@@ -11,21 +11,21 @@ from gensim.summarization import summarize
 from selenium.common.exceptions import NoSuchElementException
 from scipy.linalg import triu
 import re
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.service import Service
+from webdriver_manager.edge import EdgeDriverManager
+from selenium.webdriver.edge.service import Service
 
 
 
 url = "https://news.naver.com/section/100"
 
 # Selenium WebDriver 설정
-options = wb.ChromeOptions()
+options = wb.EdgeOptions()
 # options.add_argument("--headless")  # 브라우저 창 없이 실행
 options.add_argument("--remote-debugging-port=9222")  # 디버깅 포트 연결
 options.add_argument("user-data-dir=C:/Users/username/selenium/user-data")  # 새로운 프로필 디렉토리 지정
 
-service = Service(ChromeDriverManager().install())
-driver = wb.Chrome(service=service, options=options)
+service = Service(EdgeDriverManager().install())
+driver = wb.Edge(service=service, options=options)
 
 
 driver.get(url)
