@@ -25,7 +25,11 @@ options = wb.ChromeOptions()
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 
+
+
 chrome_driver = './chromedriver.exe'
+if os.path.exists(chrome_driver):
+    os.chmod(chrome_driver, stat.S_IRWXU)
 
 service = Service(chrome_driver)
 
