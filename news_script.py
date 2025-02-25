@@ -17,25 +17,17 @@ from selenium.webdriver.chrome.service import Service
 
 
 
+# 뉴스 섹션 URL
 url = "https://news.naver.com/section/100"
 
-# Selenium WebDriver 설정
-options = wb.ChromeOptions()
-# options.add_argument("--headless")  # 브라우저 창 없이 실행
+# 크롬 옵션 설정 (헤드리스 모드)
+options = Options()
+# options.add_argument("--headless=new")
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
-
-
-
-chrome_driver_path = "/usr/local/bin/chromedriver"
-if os.path.exists(chrome_driver_path):
-    os.chmod(chrome_driver_path, stat.S_IRWXU)
-
-service = Service(chrome_driver_path)
-
-
-driver = wb.Chrome(service=service, options=options)
+driver = wb.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 driver.get(url)
+
 
 
 # 정치 뉴스 함수
