@@ -27,7 +27,7 @@ options.add_argument("--disable-dev-shm-usage")
 
 chrome_driver = './chromedriver.exe'
 
-service = Service(chrome_driver_path)
+service = Service(chrome_driver)
 
 
 driver = wb.Chrome(service=service, options=options)
