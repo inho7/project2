@@ -31,7 +31,7 @@ chrome_driver_path = "/usr/local/bin/chromedriver"
 if os.path.exists(chrome_driver_path):
     os.chmod(chrome_driver_path, stat.S_IRWXU)
 
-service = Service(chrome_driver_pathr)
+service = Service(chrome_driver_path)
 
 
 driver = wb.Chrome(service=service, options=options)
