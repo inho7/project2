@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import sqlite3
 import random
+import os, stat
 from selenium import webdriver as wb
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -17,12 +18,15 @@ from selenium.webdriver.chrome.service import Service
 
 
 url = "https://news.naver.com/section/100"
+chrome_driver_path = "chromedriver.exe"
 
 # Selenium WebDriver 설정
 options = wb.ChromeOptions()
 # options.add_argument("--headless")  # 브라우저 창 없이 실행
 
-service = Service("./chromedriver.exe")
+service = Service(chrome_driver_path)
+os.chmod(chrome_driver_path, stat.S_IRWXU)
+
 driver = wb.Chrome(service=service, options=options)
 driver.get(url)
 
