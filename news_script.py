@@ -27,11 +27,11 @@ options.add_argument("--disable-dev-shm-usage")
 
 
 
-chrome_driver = './chromedriver.exe'
-if os.path.exists(chrome_driver):
-    os.chmod(chrome_driver, stat.S_IRWXU)
+chrome_driver_path = "/usr/local/bin/chromedriver"
+if os.path.exists(chrome_driver_path):
+    os.chmod(chrome_driver_path, stat.S_IRWXU)
 
-service = Service(chrome_driver)
+service = Service(chrome_driver_pathr)
 
 
 driver = wb.Chrome(service=service, options=options)
